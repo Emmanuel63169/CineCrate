@@ -1,0 +1,11 @@
+/* Movies Page CSS */
+
+.moviesPage {
+    color: white;
+    background-color: darkgrey;
+    padding: 1vw;
+    width: 100%; 
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
