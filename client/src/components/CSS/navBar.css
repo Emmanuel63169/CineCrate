@@ -3,18 +3,20 @@
 #navBar {
     background-color: aliceblue;
     color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .navLinks {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .navLinks a {
     color: darkgrey;
+    font-weight: bold;
+    font-size: x-large;
 }
