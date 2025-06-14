@@ -16,7 +16,23 @@
 }
 
 .navLinks a {
-    color: darkgrey;
+    color: black;
     font-weight: bold;
     font-size: x-large;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 75%;
+}
+
+.navLinks a:hover {
+    background-color: black;
+    color: white;
+    border-color: gray;
+    transform: translateX(20px);
+}
+
+.title {
+    font-family: baumans;
+    border-bottom: double black;
 }

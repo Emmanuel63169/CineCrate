@@ -10,7 +10,7 @@ export default function NavBar() {
     return (
         <>
             <div id='navBar'>
-            <h1>CineCrate</h1>
+            <h1 className='title'>CineCrate</h1>
                 <div className='navLinks'>
                     <Link to='/'>Home</Link>
                     <Link to='/movies'>Movies</Link>
