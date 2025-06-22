@@ -1,7 +1,7 @@
 // Setup for backend server goes here
 
 const {connectDB, createTables, createUser, authenticateUser, createMovie,} = require('./db.js')
-// const { seedData } = require('./seed.js') - not done yet
+const { seedData } = require('./seed.js')
 
 const cors = require('cors')
 
@@ -22,7 +22,7 @@ app.use('/api', router)
 const init = async () => {
     await connectDB();
     await createTables();
-    // await seedData();
+    await seedData();
 
     app.listen(port, () => console.log(`listening on PORT ${port}`));
 }
