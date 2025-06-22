@@ -168,6 +168,15 @@ const createMovie = async ({movie_name, movie_img, movie_description, price}) =>
     return response.rows[0];
 }
 
+// Get functions to retrieve data from tables is put here
+const getMovies = async() => {
+    const SQL = /*sql*/ `
+    SELECT * FROM movies
+    `
+    const response = await pool.query(SQL)
+    return response.rows
+}
+
 module.exports = {
     pool,
     connectDB,
@@ -175,4 +184,5 @@ module.exports = {
     createUser,
     authenticateUser,
     createMovie,
+    getMovies,
 }
