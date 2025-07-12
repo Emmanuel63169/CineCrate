@@ -46,7 +46,7 @@ const createTables = async () => {
             password_hash TEXT NOT NULL,
             is_admin BOOLEAN DEFAULT FALSE,
             created_at TIMESTAMP DEFAULT NOW(),
-            updated_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
         );
         `;
         await pool.query(createUsersTable)
@@ -62,7 +62,7 @@ const createTables = async () => {
             movie_description TEXT,
             price NUMERIC(10, 2) NOT NULL,
             created_at TIMESTAMP DEFAULT NOW(),
-            updated_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
         );
         `;
         await pool.query(createMoviesTable)
