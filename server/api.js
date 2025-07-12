@@ -19,13 +19,13 @@ const {
 // }
 
 // GET/api/movies
-router.get('/movies', async(req, resizeBy, next) => {
+router.get('/movies', async(req, res, next) => {
     try{
         const response = await getMovies();
         if(response.length === 0) {
-            return resizeBy.status(400).json({message: 'No Movies?'})
+            return res.status(400).json({message: 'No Movies?'})
         }
-        resizeBy.status(200).send(response)
+        res.status(200).send(response)
     } catch (error) {
         next(error)
     }
