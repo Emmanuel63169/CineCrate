@@ -8,6 +8,7 @@ import MoviesPage from './components/movies'
 import LoginPage from './components/login'
 
 function App() {
+const [movies, setMovies] = useState([]);
 
   return (
     <Router>
@@ -15,7 +16,7 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path='/' element={<HomePage/>} />
-          <Route path='/movies' element={<MoviesPage/>}/>
+          <Route path='/movies' element={<MoviesPage movies={movies} setMovies={setMovies}/>}/>
           <Route path='/login' element={<LoginPage/>}/>
         </Routes>
       </div>
