@@ -14,10 +14,10 @@ async function seedData() {
 
         // Movies -
         const [jaws, star_Wars, titanic, wizard_of_oz] = await Promise.all([
-            createMovie({ movie_id: 'Jaws',          movie_img: '-_-_-', movie_description: '-_-_-', price: '15' }),
-            createMovie({ movie_id: 'Star Wars',     movie_img: '-_-_-', movie_description: '-_-_-', price: '10' }),
-            createMovie({ movie_id: 'Titanic',       movie_img: '-_-_-', movie_description: '-_-_-', price: '20' }),
-            createMovie({ movie_id: 'Wizard of Oz',  movie_img: '-_-_-', movie_description: '-_-_-', price: '15' }),
+            createMovie({ movie_name: 'Jaws',          movie_img: '-_-_-', movie_description: 'Shark movie', price: '15' }),
+            createMovie({ movie_name: 'Star Wars',     movie_img: '-_-_-', movie_description: 'Sars movie', price: '10' }),
+            createMovie({ movie_name: 'Titanic',       movie_img: '-_-_-', movie_description: 'Ship movie', price: '20' }),
+            createMovie({ movie_name: 'Wizard of Oz',  movie_img: '-_-_-', movie_description: 'Wizard movie', price: '15' }),
         ])
 
         // Users -
