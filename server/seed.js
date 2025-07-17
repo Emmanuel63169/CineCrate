@@ -43,9 +43,9 @@ async function seedData() {
             }),
 
             createMovie({ 
-                movie_name: 'Harry Poter',
-                movie_img: 'https://th.bing.com/th/id/OIP.9a516ufFrYCswcoK9WVdsgHaDt?w=340&h=175&c=7&r=0&o=7&pid=1.7&rm=3',
-                movie_description: 'Wizard movie 2',
+                movie_name: "Harry Potter and the Sorcerer's Stone",
+                movie_img: 'https://th.bing.com/th/id/OIP.qxom_sjZL2E7z4iFVGUfGwHaKJ?w=203&h=278&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard with stone movie',
                 price: '15'
             }),
 
@@ -154,6 +154,195 @@ async function seedData() {
                 price: '15'
             }),
             
+            createMovie ({
+                movie_name: 'Casablanca',
+                movie_img: 'https://th.bing.com/th/id/OIP.YDnUQKq5pwQ9jPq38wO9KAHaOH?w=181&h=345&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'White house movie',
+                price: '18'
+            }),
+            
+            createMovie ({
+                movie_name: 'Indiana Jones and the Temple of Doom',
+                movie_img: 'https://th.bing.com/th/id/OIP.n2nVTctdAKMy9x03t5-zJwHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Explorer temple movie',
+                price: '12'
+            }),
+
+            createMovie ({
+                movie_name: 'Indiana Jones and the Raiders of the Lost Ark',
+                movie_img: 'https://th.bing.com/th/id/OIP.gINOSGB8zKh5RoHMfCApYwHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Explorer and raiders movie',
+                price: '12'
+            }),
+
+            createMovie ({
+                movie_name: 'Indiana Jones and the Dial of Destiny',
+                movie_img: 'https://th.bing.com/th/id/OIP.cZozIYH93YtrPLAL2LSA6AHaKZ?w=203&h=285&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Explorer with dial movie',
+                price: '24'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Potter and the Chamber of Secrets',
+                movie_img: 'https://th.bing.com/th/id/OIP.SE6706HaGzPkTT3YX919zQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard and room movie',
+                price: '12'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Potter and the Prisoner of Azkaban',
+                movie_img: 'https://th.bing.com/th/id/OIP.VcTbX00bq_RZIiFyhak1NwHaLE?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard and prisoner movie',
+                price: '14'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Potter and the Goblet of Fire',
+                movie_img: 'https://th.bing.com/th/id/OIP.JcU7XYLwYHE8YF0hF4UNGgHaK1?w=203&h=298&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard and a cup movie',
+                price: '16'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Potter and the Order of the Phoenix',
+                movie_img: 'https://th.bing.com/th/id/OIP.lqDIf260ielPfX4NOZ-8LQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard and a bird on fire movie',
+                price: '18'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Potter and the Half-Blood Prince',
+                movie_img: 'https://th.bing.com/th/id/OIP.FBTsaVQXTxSSx8k8IGMfewHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard and prince movie',
+                price: '18'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Potter and the Deathly Hallows: Part 1',
+                movie_img: 'https://th.bing.com/th/id/OIP.x5BmOOYLdswLudoMsJ2z2AAAAA?w=203&h=287&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Wizard and stuff movie?',
+                price: '16'
+            }),
+
+            createMovie ({
+                movie_name: 'Harry Poter and the Deathly Hallows: Part 2',
+                movie_img: 'https://th.bing.com/th/id/OIP.JeA89XFSCCEAPj_izKJKfQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'I dont even know movie',
+                price: '18'
+            }),
+
+            createMovie ({
+                movie_name: 'The Lord of the Rings: The Fellowship of the Ring',
+                movie_img: 'https://th.bing.com/th/id/OIP.oxFV3VAxs_skP4thtGu1FgHaLB?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: '',
+                price: '13'
+            }),
+
+            createMovie ({
+                movie_name: 'The Lord of the Rings: The Two Towers',
+                movie_img: 'https://th.bing.com/th/id/OIP.zxc7JglYEInZAb0Wrma0KAHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Man with rings and two towers movie.',
+                price: '14'
+            }),
+
+            createMovie ({
+                movie_name: 'The Lord of the Rings: The Return of the King',
+                movie_img: 'https://th.bing.com/th/id/OIP.mF8hZd3_gzktA2BZMTlcLAHaKr?w=203&h=293&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Man with rings and a king movie',
+                price: '15'
+            }),
+
+            createMovie ({
+                movie_name: 'Logan',
+                movie_img: 'https://th.bing.com/th/id/OIP.gn54sjB_4iFMiNPW5Yf46QHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Regular man movie',
+                price: '16'
+            }),
+
+            createMovie ({
+                movie_name: 'The Shining',
+                movie_img: 'https://th.bing.com/th/id/OIP.PdsAH3dd0TFE4kqpmNdjTwHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: '',
+                price: '8'
+            }),
+
+            createMovie ({
+                movie_name: 'Dumb and Dumber',
+                movie_img: 'https://th.bing.com/th/id/OIP.ESMsEc-T--w5KAwSj4sDEwHaKp?w=203&h=292&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'two shallow fellas movie',
+                price: '8'
+            }),
+
+            createMovie ({
+                movie_name: 'Knives Out',
+                movie_img: 'https://th.bing.com/th/id/OIP.Q6A2fOU9NMGrvtBLL_lqnQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Sharp utensil movie',
+                price: '16'
+            }),
+
+            createMovie ({
+                movie_name: 'Spiderman into the Spider-Verse',
+                movie_img: 'https://th.bing.com/th/id/OIP.GfHRlxIU_ZTycABbFZZVaAHaJ4?w=203&h=271&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Spiderman animated movie',
+                price: '18'
+            }),
+
+            createMovie ({
+                movie_name: "Howl's Moving Castle",
+                movie_img: 'https://th.bing.com/th/id/OIP.d97EyMCON2iXzqGE1hmbZgHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Castle of Howl moves movie',
+                price: '14'
+            }),
+
+            createMovie ({
+                movie_name: 'The Dark Knight',
+                movie_img: 'https://th.bing.com/th/id/OIP.NN9rKH-vZbFgtH4FuoW7OwHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Local man dresed as bat assaults insane elderly man movie',
+                price: '13'
+            }),
+
+            createMovie ({
+                movie_name: 'The Lego Batman Movie',
+                movie_img: 'https://th.bing.com/th/id/OIP.zUgckVH9a3wjtgd17qDVagHaLP?w=202&h=308&c=7&r=0&o=5&pid=1.7',
+                movie_description: 'Local man dressed as bat is lego movie',
+                price: '12'
+            }),
+
+            createMovie ({
+                movie_name: 'Joker',
+                movie_img: 'https://th.bing.com/th/id/OIP.Vwz5WQJCXWK_2YbyRmzZrAHaJQ?w=203&h=254&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Joker movie',
+                price: '22'
+            }),
+
+            createMovie ({
+                movie_name: 'The Batman',
+                movie_img: 'https://th.bing.com/th/id/OIP.UwYBwFZrivOHI5RrY0tklQHaKd?w=203&h=287&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Batman movie',
+                price: '26'
+            }),
+
+            createMovie ({
+                movie_name: 'The Lego Movie',
+                movie_img: 'https://th.bing.com/th/id/OIP.Me85jP3x0SO_BTko7GeKfQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Lego movie',
+                price: '14'
+            }),
+
+            createMovie ({
+                movie_name: 'No Country For Old Men',
+                movie_img: 'https://th.bing.com/th/id/OIP.L-LDZpmrKkYJyfYIKPehNwHaLD?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'No land with old people movie',
+                price: '14'
+            }),
+
+            createMovie ({
+                movie_name: 'Pulp Fiction',
+                movie_img: 'https://th.bing.com/th/id/OIP.Kkraw2_oAaCQEje1_s8zOgHaJ8?w=203&h=273&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_description: 'Fake orange movie',
+                price: '10'
+            }),
+
             // Example Display -
             // createMovie ({
             //     movie_name: '',
