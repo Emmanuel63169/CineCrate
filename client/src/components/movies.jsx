@@ -7,12 +7,20 @@ export default function moviesPage({ movies, setMovies}) {
 const MOVIES_API_URL = "http://localhost:3000/api/movies";
 
 // Scrolling-Buttons Logic -
-const scrollContainer = (scrollOffset) => {
+let scrollInterval = null;
+
+const startScrolling = (direction) => {
   const container = document.getElementById("moviesContainer");
-  if (container) {
-    container.scrollBy({ left: scrollOffset, behavior: "smooth" });
-  }
+  if (!container) return; 
+
+  scrollInterval = setInterval(() => {
+    container.scrollBy({ left: direction, behavior: "smooth" });
+  }, 50);
 };
+
+const stopScrolling = () => {
+  clearInterval(scrollInterval)
+}
 
 useEffect(() => { 
 
@@ -49,7 +57,14 @@ useEffect(() => {
             <h1>Movies Page</h1> 
 
           <div className="scrollWrapper">
-            <button className='scrollButton_left' onClick={() => scrollContainer(-300)}>&lt;</button>
+            <button 
+              className='scrollButton_left' 
+              onMouseDown={() => startScrolling(-10)}
+              onMouseUp={stopScrolling}
+              onMouseLeave={stopScrolling}
+              onTouchStart={() => startScrolling(-10)}
+              onTouchEnd={stopScrolling}
+            >&lt;</button>
 
             <div id="moviesContainer" className='moviesContainer'>
               {movies.length === 0 ? ( 
@@ -63,7 +78,14 @@ useEffect(() => {
                 ))
               )}
             </div>
-            <button className='scrollButton_Right' onClick={() => scrollContainer(300)}>&gt;</button>
+            <button 
+              className='scrollButton_Right' 
+              onMouseDown={() => startScrolling(10)}
+              onMouseUp={stopScrolling}
+              onMouseLeave={stopScrolling}
+              onTouchStart={() => startScrolling(10)}
+              onTouchEnd={stopScrolling}
+            >&gt;</button>
           </div>
         </div>  
       </>
