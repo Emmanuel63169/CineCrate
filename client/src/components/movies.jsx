@@ -42,7 +42,7 @@ useEffect(() => {
   if (container) {
     const handleWheel = (e) => {
       e.preventDefault();
-      container.scrollLeft += e.deltaY;
+      container.scrollLeft += e.deltaY * 3;
     };
 
     container.addEventListener("wheel", handleWheel);

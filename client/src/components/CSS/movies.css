@@ -42,31 +42,47 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
-.scrollButton.left {
+.scrollButton_left {
   margin-right: 0.5rem;
 }
 
-.scrollButton.right {
+.scrollButton_right {
   margin-left: 0.5rem;
 }
 
 .movieCard {
     width: 250px;
+    height: 300px;
     background-color: rgb(40, 40, 40);
     border: 5px double black;
     text-align: center;
     scroll-snap-align: start;
     flex: 0 0 auto;
     margin: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .movieCard img {
   width: 100%;
-  height: auto;
-  max-height: 180px;
-  width: auto;
-  max-width: 300px;
-  object-fit: cover;
-  margin: 6px 6px;
+  height: 220px;
+  object-fit: contain;
   border: 1px solid #000;
+  margin: 0px;
+  display: block;
+  background-color: #000;
+}
+
+.movieCard h3 {
+  font-size: 1.25rem;
+  margin: 0 8px 10px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+  padding: 4px;
+  text-shadow: 1px 1px 2px black;
 }
