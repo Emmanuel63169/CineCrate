@@ -2,10 +2,21 @@
 
 .loginPage {
     color: white;
-    background-color: darkgrey;
+    background-color: rgb(40, 40, 40);
     padding: 1vw;
     width: 100%; 
     height: 100vh;
     box-sizing: border-box;
     overflow-y: auto;
+}
+
+.loginInputs {
+    background-color: darkred;
+    padding: 2rem;
+    width: fit-content;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
 }
