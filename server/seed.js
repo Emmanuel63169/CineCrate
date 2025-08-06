@@ -325,7 +325,7 @@ async function seedData() {
             addGenreToMovie({ movie_id: star_wars.movie_id,                       genre_id: sciFi.genre_id    }),
             addGenreToMovie({ movie_id: titanic.movie_id,                         genre_id: drama.genre_id    }),
             addGenreToMovie({ movie_id: wizard_of_oz.movie_id,                    genre_id: fantasy.genre_id  }),
-            addGenreToMovie({ movie_id: harry_potter_1.movie_id,                  genre_id: fantasy.genre.id  }),
+            addGenreToMovie({ movie_id: harry_potter_1.movie_id,                  genre_id: fantasy.genre_id  }),
             addGenreToMovie({ movie_id: the_lion_king.movie_id,                   genre_id: animated.genre_id }),
             addGenreToMovie({ movie_id: wall_e.movie_id,                          genre_id: animated.genre_id }),
             addGenreToMovie({ movie_id: jurassic_park.movie_id,                   genre_id: action.genre_id   }),
