@@ -30,8 +30,10 @@ const createTables = async () => {
         
         //drop tables if exist (only on my db)
         const dropTables = `
-        DROP TABLE IF EXISTS users CASCADE;
+        DROP TABLE IF EXISTS movie_genres CASCADE;
+        DROP TABLE IF EXISTS genres CASCADE;
         DROP TABLE IF EXISTS movies CASCADE;
+        DROP TABLE IF EXISTS users CASCADE;
         `;
         await pool.query(dropTables);
         
@@ -68,7 +70,26 @@ const createTables = async () => {
         await pool.query(createMoviesTable)
         
         
-        // Create categories table
+        // Create Genres table -
+        console.log('Creating categories Table...')
+        const createGenresTable = /*sql*/ `
+        CREATE TABLE IF NOT EXISTS genres (
+            genre_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            genre_name VARCHAR(50) UNIQUE NOT NULL
+        );
+        `;
+        await pool.query(createGenresTable);
+
+        // Create Movie_Genres Join Table -
+        console.log('Creating movie_genres join table...')
+        const createMovieGenresTable = /*sql*/ `
+        CREATE TABLE IF NOT EXISTS movie_genres (
+            movie_id UUID REFERENCES movies(movie_id) ON DELETE CASCADE,
+            genre_id UUID REFERENCES genres(genre_id) ON DELETE CASCADE,
+            PRIMARY KEY (movie_id, genre_id)
+        );
+        `;
+        await pool.query(createMovieGenresTable);
 
         // Create Cart_movies Table
 
@@ -139,7 +160,7 @@ const authenticateUser = async ({ username, password }) => {
     }
 
     const token = jwt.sign({ id: response.rows[0].id }, JWT , {
-        algorith: 'HS256',
+        algorithm: 'HS256',
     });
     console.log('Generated Token:', token);
     return { token };
@@ -177,6 +198,33 @@ const getMovies = async() => {
     return response.rows
 }
 
+// Create Genre Function -
+const createGenre = async ({ genre_name }) => {
+    const SQL = /*sql*/ `
+        INSERT INTO genres (
+            genre_id, 
+            genre_name
+        )
+        VALUES ($1, $2)
+        RETURNING *;
+    `;
+    const response = await pool.query(SQL, [uuid.v4(), genre_name]);
+    return response.rows[0];
+}
+
+// Add Movie to Genre
+const addGenreToMovie = async ({ movie_id, genre_id }) => {
+    const SQL = /*sql*/ `
+        INSERT INTO movie_genres (
+            movie_id, 
+            genre_id
+        )
+        VALUES ($1, $2)
+        ON CONFLICT DO NOTHING;
+    `;
+    await pool.query(SQL, [movie_id, genre_id]);
+};
+
 module.exports = {
     pool,
     connectDB,
@@ -185,4 +233,6 @@ module.exports = {
     authenticateUser,
     createMovie,
     getMovies,
+    createGenre,
+    addGenreToMovie,
 }
