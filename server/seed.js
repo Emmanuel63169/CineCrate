@@ -4,7 +4,8 @@ const {
     pool,
     createUser,
     createMovie,
-    createGenre
+    createGenre,
+    addGenreToMovie
 } = require('./db.js')
 
 async function seedData() {
