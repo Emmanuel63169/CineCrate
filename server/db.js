@@ -212,7 +212,7 @@ const createGenre = async ({ genre_name }) => {
     return response.rows[0];
 }
 
-// Add Movie to Genre
+// Add Movie to Genre -
 const addGenreToMovie = async ({ movie_id, genre_id }) => {
     const SQL = /*sql*/ `
         INSERT INTO movie_genres (
@@ -220,10 +220,29 @@ const addGenreToMovie = async ({ movie_id, genre_id }) => {
             genre_id
         )
         VALUES ($1, $2)
-        ON CONFLICT DO NOTHING;
+        RETURNING *;
     `;
     await pool.query(SQL, [movie_id, genre_id]);
 };
+
+// Fetch Movies with Genres -
+const getMoviesWithGenres = async () => {
+    const SQL = /*sql*/ `
+    SELECT
+        m.movie_id,
+        m.movie_name,
+        m.movie_img,
+        m.movie_description,
+        m.price,
+        ARRAY_AGG(g.genre_name) AS genres
+    FROM movies m
+    LEFT JOIN movie_genres mg ON m.movie_id = mg.movie_id
+    LEFT JOIN genres g ON mg.genre_id = g.genre_id
+    GROUP BY m.movie_id;
+    `;
+    const response = await pool.query(SQL);
+    return response.rows;
+}
 
 module.exports = {
     pool,
@@ -235,4 +254,5 @@ module.exports = {
     getMovies,
     createGenre,
     addGenreToMovie,
+    getMoviesWithGenres,
 }

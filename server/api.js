@@ -12,6 +12,7 @@ const {
     authenticateUser,
     getUserById,
     getMovies,
+    getMoviesWithGenres,
 } = require('./db')
 
 // function verifyToken(req, res, next) {
@@ -21,7 +22,7 @@ const {
 // GET/api/movies
 router.get('/movies', async(req, res, next) => {
     try{
-        const response = await getMovies();
+        const response = await getMoviesWithGenres();
         if(response.length === 0) {
             return res.status(400).json({message: 'No Movies?'})
         }

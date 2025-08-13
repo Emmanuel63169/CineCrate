@@ -86,3 +86,18 @@
   padding: 4px;
   text-shadow: 1px 1px 2px black;
 }
+
+.genreMoviesContainer {
+  background-color: darkred;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 10px 40px;
+    scroll-snap-type: x mandatory;
+}
+
+genreMovies {
+  
+}

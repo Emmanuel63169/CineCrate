@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import './CSS/movies.css'
 
-export default function moviesPage({ movies, setMovies}) {
+export default function MoviesPage({ movies, setMovies}) {
 const MOVIES_API_URL = "http://localhost:3000/api/movies";
 
 // Scrolling-Buttons Logic -
@@ -51,43 +51,73 @@ useEffect(() => {
   }
 }, []);
 
+  const moviesByGenre = {};
+  movies.forEach(movie => {
+    if  (Array.isArray(movie.genres)) {
+      movie.genres.forEach(genre =>  {
+        if (!moviesByGenre[genre]) {
+          moviesByGenre[genre] = [];
+        }
+        moviesByGenre[genre].push(movie);
+        console.log(genre)
+3      });
+    }
+  });
+
     return (
       <>
-        <div className='moviesPage'>
+      <div className='moviesPage'>
             <h1>Movies Page</h1> 
 
-          <div className="scrollWrapper">
-            <button 
-              className='scrollButton_left' 
-              onMouseDown={() => startScrolling(-10)}
-              onMouseUp={stopScrolling}
-              onMouseLeave={stopScrolling}
-              onTouchStart={() => startScrolling(-10)}
-              onTouchEnd={stopScrolling}
-            >&lt;</button>
+          <h2>All Movies</h2>
+        <div className="scrollWrapper">
+          <button 
+            className='scrollButton_left' 
+            onMouseDown={() => startScrolling(-10)}
+            onMouseUp={stopScrolling}
+            onMouseLeave={stopScrolling}
+            onTouchStart={() => startScrolling(-10)}
+            onTouchEnd={stopScrolling}
+          >&lt;</button>
 
-            <div id="moviesContainer" className='moviesContainer'>
+          <button 
+            className='scrollButton_Right' 
+            onMouseDown={() => startScrolling(10)}
+            onMouseUp={stopScrolling}
+            onMouseLeave={stopScrolling}
+            onTouchStart={() => startScrolling(10)}
+            onTouchEnd={stopScrolling}
+          >&gt;</button>
+
+          <div id='moviesContainer' className='moviesContainer'>
               {movies.length === 0 ? ( 
                 <p>No movies avaliable</p>
               ) : (
-                movies.map((movie) => (
-                  <div key={movie.id} id={movie.id} className="movieCard">
-                    <img src={movie.movie_img} alt={`${movie.movie_name} Image`}  />
-                    <h3>{movie.movie_name}</h3>
-                  </div>
-                ))
-              )}
-            </div>
-            <button 
-              className='scrollButton_Right' 
-              onMouseDown={() => startScrolling(10)}
-              onMouseUp={stopScrolling}
-              onMouseLeave={stopScrolling}
-              onTouchStart={() => startScrolling(10)}
-              onTouchEnd={stopScrolling}
-            >&gt;</button>
+              movies.map((movie) => (
+                <div key={movie.id} id={movie.id} className='movieCard'>
+                  <img src={movie.movie_img} alt={`${movie.movie_name} Image`}  />
+                  <h3>{movie.movie_name}</h3>
+                </div>
+              ))
+            )}
           </div>
-        </div>  
+        </div>
+
+          {Object.entries(moviesByGenre).map(([genre, genreMovies]) => (
+            <section key={genre} className="genreMovies">
+              <h2>{genre}</h2>
+
+                <div className='genreMoviesContainer'>
+                  {genreMovies.map(movie => (
+                    <div key={movie.id} className="movieCard">
+                      <img src={movie.movie_img} alt={`${movie.movie_name} Image`}  />
+                    <h3>{movie.movie_name}</h3>
+                    </div>
+                  ))}
+                </div>
+            </section>
+          ))}
+      </div> 
       </>
     )
 }
