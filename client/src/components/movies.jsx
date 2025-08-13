@@ -1,5 +1,5 @@
 // Movies Page - where all movies can be browsed
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import './CSS/movies.css'
 
@@ -9,10 +9,8 @@ const MOVIES_API_URL = "http://localhost:3000/api/movies";
 // Scrolling-Buttons Logic -
 let scrollInterval = null;
 
-const startScrolling = (direction) => {
-  const container = document.getElementById("moviesContainer");
+const startScrolling = (container, direction) => {
   if (!container) return; 
-
   scrollInterval = setInterval(() => {
     container.scrollBy({ left: direction, behavior: "smooth" });
   }, 50);
@@ -23,7 +21,6 @@ const stopScrolling = () => {
 }
 
 useEffect(() => { 
-
   const fetchMovies = async () => {
     try {
       const response = await fetch(MOVIES_API_URL);
@@ -36,20 +33,26 @@ useEffect(() => {
   }
   
   fetchMovies();
+}, []);
 
   // Scroll-Wheel Logic -
-  const container = document.getElementById("moviesContainer")
-  if (container) {
+  useEffect(() => {
+    const scrollContainers = document.querySelectorAll(".scrollable")
     const handleWheel = (e) => {
       e.preventDefault();
-      container.scrollLeft += e.deltaY * 3;
+      e.currentTarget.scrollLeft += e.deltaY * 3;
     };
 
-    container.addEventListener("wheel", handleWheel);
-
-    return () => container.removeEventListener("wheel", handleWheel, { passive: false });
-  }
-}, []);
+    scrollContainers.forEach(container => {
+      container.addEventListener("wheel", handleWheel, { passive: false });
+    });
+    
+    return () => {
+      scrollContainers.forEach(container => {
+        container.removeEventListener("wheel", handleWheel);
+      });
+    };
+  }, [movies])
 
   const moviesByGenre = {};
   movies.forEach(movie => {
@@ -59,62 +62,60 @@ useEffect(() => {
           moviesByGenre[genre] = [];
         }
         moviesByGenre[genre].push(movie);
-        console.log(genre)
-3      });
+      });
     }
   });
 
-    return (
-      <>
-      <div className='moviesPage'>
-            <h1>Movies Page</h1> 
-
-          <h2>All Movies</h2>
-        <div className="scrollWrapper">
+  const renderScrollSection = (title, moviesList) => (
+    <>
+    <h2>{title}</h2>
+    <div className="scrollWrapper">
           <button 
             className='scrollButton_left' 
-            onMouseDown={() => startScrolling(-10)}
+            onMouseDown={(e) => startScrolling(e.currentTarget.nextElementSibling, -10)}
             onMouseUp={stopScrolling}
             onMouseLeave={stopScrolling}
-            onTouchStart={() => startScrolling(-10)}
+            onTouchStart={(e) => startScrolling(e.currentTarget.nextElementSibling, -10)}
             onTouchEnd={stopScrolling}
           >&lt;</button>
 
-          <button 
-            className='scrollButton_Right' 
-            onMouseDown={() => startScrolling(10)}
-            onMouseUp={stopScrolling}
-            onMouseLeave={stopScrolling}
-            onTouchStart={() => startScrolling(10)}
-            onTouchEnd={stopScrolling}
-          >&gt;</button>
-
-          <div id='moviesContainer' className='moviesContainer'>
-              {movies.length === 0 ? ( 
+          <div className='moviesContainer scrollable'>
+              {moviesList.length === 0 ? ( 
                 <p>No movies avaliable</p>
               ) : (
-              movies.map((movie) => (
-                <div key={movie.id} id={movie.id} className='movieCard'>
+              moviesList.map((movie) => (
+                <div key={movie.movie_id} id={movie.movie_id} className='movieCard'>
                   <img src={movie.movie_img} alt={`${movie.movie_name} Image`}  />
                   <h3>{movie.movie_name}</h3>
                 </div>
               ))
             )}
           </div>
+
+          <button 
+            className='scrollButton_Right' 
+            onMouseDown={(e) => startScrolling(e.currentTarget.previousElementSibling, 10)}
+            onMouseUp={stopScrolling}
+            onMouseLeave={stopScrolling}
+            onTouchStart={(e) => startScrolling(e.currentTarget.previousElementSibling, 10)}
+            onTouchEnd={stopScrolling}
+          >&gt;</button>
+
         </div>
+    </>
+  )
+
+    return (
+      <>
+      <div className='moviesPage'>
+            <h1>Movies Page</h1> 
+
+          {/* All Movies */}
+          {renderScrollSection("All Movies", movies)}
 
           {Object.entries(moviesByGenre).map(([genre, genreMovies]) => (
             <section key={genre} className="genreMovies">
-              <h2>{genre}</h2>
-
-                <div className='genreMoviesContainer'>
-                  {genreMovies.map(movie => (
-                    <div key={movie.id} className="movieCard">
-                      <img src={movie.movie_img} alt={`${movie.movie_name} Image`}  />
-                    <h3>{movie.movie_name}</h3>
-                    </div>
-                  ))}
-                </div>
+              {renderScrollSection(genre, genreMovies)}
             </section>
           ))}
       </div> 
