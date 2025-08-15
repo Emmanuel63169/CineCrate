@@ -1,10 +1,13 @@
 // Movies Page - where all movies can be browsed
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import './CSS/movies.css'
 
 export default function MoviesPage({ movies, setMovies}) {
 const MOVIES_API_URL = "http://localhost:3000/api/movies";
+
+// Search Bar -
+const [searchQuery, setSearchQuery ] = useState("");
 
 // Scrolling-Buttons Logic -
 let scrollInterval = null;
@@ -35,6 +38,10 @@ useEffect(() => {
   fetchMovies();
 }, []);
 
+const filteredMovies = movies.filter(movie => 
+  movie.movie_name.toLowerCase().includes(searchQuery.toLowerCase())
+)
+
   // Scroll-Wheel Logic -
   useEffect(() => {
     const scrollContainers = document.querySelectorAll(".scrollable")
@@ -52,7 +59,8 @@ useEffect(() => {
         container.removeEventListener("wheel", handleWheel);
       });
     };
-  }, [movies])
+  }, [movies, filteredMovies])
+
 
   const moviesByGenre = {};
   movies.forEach(movie => {
@@ -93,7 +101,7 @@ useEffect(() => {
           </div>
 
           <button 
-            className='scrollButton_Right' 
+            className='scrollButton_right' 
             onMouseDown={(e) => startScrolling(e.currentTarget.previousElementSibling, 10)}
             onMouseUp={stopScrolling}
             onMouseLeave={stopScrolling}
@@ -105,12 +113,41 @@ useEffect(() => {
     </>
   )
 
-    return (
-      <>
-      <div className='moviesPage'>
-            <h1>Movies Page</h1> 
+  const renderSearchResults = (movieList) => (
+    <div className="searchResults">
+      {movieList.length === 0 ? (
+        <p>No Movies Found</p>
+      ) : (
+        movieList.map((movie) => (
+          <div key={movie.movie_id} className='searchResultItem'>
+            <img src={movie.movie_img} alt={movie.movie_name} />
+            <h3>{movie.movie_name}</h3>
+          </div>
+        ))
+      )}
+     </div>
+  )
 
-          {/* All Movies */}
+    return (
+      <div className='moviesPage'>
+      <div className="header">
+            <h1>Movies Page</h1> 
+      <input 
+        type="text"
+        placeholder="Search Movies..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="searchBar" 
+        />
+      </div>
+
+      {searchQuery.trim() ? (
+       <>
+          <h2>SearchResults for "{searchQuery}"</h2>
+          {renderSearchResults(filteredMovies)}
+       </> 
+      ) : (
+        <>
           {renderScrollSection("All Movies", movies)}
 
           {Object.entries(moviesByGenre).map(([genre, genreMovies]) => (
@@ -118,7 +155,8 @@ useEffect(() => {
               {renderScrollSection(genre, genreMovies)}
             </section>
           ))}
+        </>
+        )}
       </div> 
-      </>
-    )
+    );
 }
