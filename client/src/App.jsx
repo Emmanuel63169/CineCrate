@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css'
 
-import NavBar from './components/navBar'
-import HomePage from './components/home'
-import MoviesPage from './components/movies'
-import LoginPage from './components/login'
+import NavBar from './components/navBar';
+import HomePage from './components/home';
+import MoviesPage from './components/movies';
+import MovieDetails from './components/movieDetails';
+import LoginPage from './components/login';
 
 function App() {
 const [movies, setMovies] = useState([]);
@@ -17,6 +18,7 @@ const [movies, setMovies] = useState([]);
         <Routes>
           <Route path='/' element={<HomePage/>} />
           <Route path='/movies' element={<MoviesPage movies={movies} setMovies={setMovies}/>}/>
+          <Route path='/movies/:movieId' element={<MovieDetails/>}/>
           <Route path='/login' element={<LoginPage/>}/>
         </Routes>
       </div>

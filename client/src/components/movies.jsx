@@ -1,5 +1,6 @@
 // Movies Page - where all movies can be browsed
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import './CSS/movies.css'
 
@@ -92,10 +93,10 @@ const filteredMovies = movies.filter(movie =>
                 <p>No movies avaliable</p>
               ) : (
               moviesList.map((movie) => (
-                <div key={movie.movie_id} id={movie.movie_id} className='movieCard'>
+                <Link to={`/movies/${movie.movie_id}`} key={movie.movie_id} id={movie.movie_id} className='movieCard'>
                   <img src={movie.movie_img} alt={`${movie.movie_name} Image`}  />
                   <h3>{movie.movie_name}</h3>
-                </div>
+                </Link>
               ))
             )}
           </div>
