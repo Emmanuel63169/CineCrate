@@ -3,28 +3,62 @@
 import {useState} from 'react'
 import './CSS/login.css'
 
-export default function loginPage() {
+export default function LoginPage() {
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const USERS_API_URL = "http://localhost:3000/api/users";
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setError('');
+    console.log('email =>', email, 'Password =>', password)
+    try {
+      const response= await fetch(`${USERS_API_URL}/login`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || 'Login failed');
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+      // JWT to localstorage?
+      localStorage.setItem('token', data.token);
+      alert('Login Successful');
+      // Redirect or reload
+      window.location.href = '/';
 
-    async function handleSubmit(event) {
-      event.preventDefault();
-      console.log('Username =>', username, 'Password =>', password)
+    }  catch (error) {
+      setError(error.message)
     }
-    return (
+  };
+  return (
       <>
         <div className='loginPage'>
             <h1>Login Page</h1>
             <div className='loginInputs'>
                 <form onSubmit={handleSubmit}>
                   <div className='formGroup'>
-                    Username: <input value={username} onChange={(e) => setUsername(e.target.value)} required/>
-                    Password: <input value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    <input 
+                      type='text'
+                      placeholder='Email'
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <input 
+                      type='password'
+                      placeholder='Password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
                   </div>
-                  <button>Submit</button>
+                  <button type='submit'>Login</button>
                 </form>
+                {error && <p style={{color: 'red'}}>{error}</p>}
             </div>
         </div>  
       </>
