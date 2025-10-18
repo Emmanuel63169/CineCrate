@@ -1,6 +1,7 @@
 // Login Page - where people sign in to their accounts
 
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom';
 import './CSS/login.css'
 
 export default function LoginPage() {
@@ -9,6 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const USERS_API_URL = "http://localhost:3000/api/users";
+  const navigate = useNavigate();
   
   async function handleSubmit(event) {
     event.preventDefault();
@@ -59,6 +61,10 @@ export default function LoginPage() {
                   <button type='submit'>Login</button>
                 </form>
                 {error && <p style={{color: 'red'}}>{error}</p>}
+              <div>
+                <p>Don't have an account?</p>
+                <button type='button' onClick={() => navigate('/register')}>Register</button>
+              </div>
             </div>
         </div>  
       </>
