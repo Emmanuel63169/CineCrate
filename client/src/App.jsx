@@ -7,6 +7,7 @@ import HomePage from './components/home';
 import MoviesPage from './components/movies';
 import MovieDetails from './components/movieDetails';
 import LoginPage from './components/login';
+import RegisterPage from './components/register';
 
 function App() {
 const [movies, setMovies] = useState([]);
@@ -20,6 +21,7 @@ const [movies, setMovies] = useState([]);
           <Route path='/movies' element={<MoviesPage movies={movies} setMovies={setMovies}/>}/>
           <Route path='/movies/:movieId' element={<MovieDetails/>}/>
           <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/register' element={<RegisterPage/>}/>
         </Routes>
       </div>
     </Router>
