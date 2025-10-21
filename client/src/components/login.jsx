@@ -61,7 +61,7 @@ export default function LoginPage() {
                   <button type='submit'>Login</button>
                 </form>
                 {error && <p style={{color: 'red'}}>{error}</p>}
-              <div>
+              <div className='registerQuestion'>
                 <p>Don't have an account?</p>
                 <button type='button' onClick={() => navigate('/register')}>Register</button>
               </div>

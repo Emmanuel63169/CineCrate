@@ -35,11 +35,17 @@ export default function MovieDetails() {
                 { !movie ? (
                     <p>Loading Movie Deatails...</p>
                 ) : (
-                    <div className="movieDetails">
-                        <button onClick={handleGoBack}>Go Back</button>
-                        <h2>{movie.movie_name}</h2>
-                        <img src={movie.movie_img} alt={movie.movie_name} />
-                        <p>{movie.movie_description}</p>
+                    <div className="movieDetailsCard">
+                        <div className="detailsHeader">
+                            <button onClick={handleGoBack}>Go Back</button>
+                        </div>
+                        <div className="movieDetails">
+                            <h2 className="movieTitle">{movie.movie_name}</h2>
+                            <div className="movieInfo">
+                                <img src={movie.movie_img} alt={movie.movie_name} />
+                                <p>{movie.movie_description}</p>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>

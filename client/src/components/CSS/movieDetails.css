@@ -9,3 +9,44 @@
     box-sizing: border-box;
     overflow-y: auto;
 }
+
+.detailsHeader {
+    display: flex;
+    align-items: start;
+}
+
+.movieDetailsCard {
+    background-color: darkred;
+    padding: 2rem 3rem;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.movieDetails {
+    background-color: #222;
+    border: 1px solid #555;
+    color: white;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.movieTitle {
+    border: 2px solid black;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    justify-content: space-between;
+}
+
+.movieInfo img {
+    width: 20rem;
+    height: 30rem;
+    border: 2px solid black;
+}
