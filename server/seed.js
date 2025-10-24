@@ -372,7 +372,16 @@ async function seedData() {
         ])
 
         // Users -
-        
+        const [ eman ] = await Promise.all ([
+            createUser ({
+                username: 'Eman',
+                email: 'eman@email.com',
+                password_hash: 'emanpassword',
+                is_admin: true
+            }),
+        ])
+
+
         console.log('Seedign Complete');
     } catch (error) {
         console.error('Error during seeding:', error);

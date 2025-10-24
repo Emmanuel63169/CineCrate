@@ -126,4 +126,27 @@ router.post('/users/login', async (req, res, next) => {
     }
 });
 
+// GET /api/users/me
+router.get('/users/me', verifyToken, async (req, res, next) => {
+    try {
+        const { user_id } = req.user;
+
+        const result = await pool.query(
+            `SELECT user_id, username, email, is_admin
+             FROM users
+             WHERE user_id = $1;`,
+             [user_id]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json(result.rows[0]);
+    } catch (error) {
+        next(error);
+    }
+});
+
+
 module.exports = router;

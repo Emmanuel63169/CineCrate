@@ -16,6 +16,7 @@ export default function LoginPage() {
     event.preventDefault();
     setError('');
     console.log('email =>', email, 'Password =>', password)
+
     try {
       const response= await fetch(`${USERS_API_URL}/login`, {
         method: 'POST',
@@ -26,16 +27,24 @@ export default function LoginPage() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || 'Login failed');
 
-      // JWT to localstorage?
-      localStorage.setItem('token', data.token);
-      alert('Login Successful');
-      // Redirect or reload
-      window.location.href = '/';
+      // JWT to localstorage? 
+      if (data.token) {
+
+        localStorage.setItem('token', data.token);
+        console.log('JWT saved:', data.token);
+        alert('Login Successful');
+        
+        // Redirect or reload
+        window.location.href = ('/home');
+      } else {
+        throw new Error('No token received from server');
+      }
 
     }  catch (error) {
       setError(error.message)
     }
   };
+
   return (
       <>
         <div className='loginPage'>

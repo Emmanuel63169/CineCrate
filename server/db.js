@@ -10,7 +10,9 @@ const pool = new Pool({
 
 const uuid = require("uuid");
 const bcrypt = require("bcrypt")
-const jwt = process.env.JWT || "lmao"; // cover in .env later
+const jwt = require("jsonwebtoken");
+
+const JWT_SECRET = process.env.JWT || "lmao"; // cover in .env later
 
 const connectDB = async () => {
     try {
@@ -106,6 +108,8 @@ const createTables = async () => {
 
 //Create User - Register
 const createUser = async ({username, email, password_hash, is_admin = false}) => {
+    const hashedPassword = await bcrypt.hash(password_hash, 10);
+    
     const SQL = /*SQL*/ `
     INSERT INTO users (
         user_id, 
@@ -121,7 +125,7 @@ const createUser = async ({username, email, password_hash, is_admin = false}) =>
         uuid.v4(), 
         username,
         email,
-        password_hash,
+        hashedPassword,
         is_admin
     ]);
     return response.rows[0];
@@ -130,7 +134,7 @@ const createUser = async ({username, email, password_hash, is_admin = false}) =>
 // Authentication
 const authenticateUser = async ({ username, password }) => {
     console.log('Authenticating User: ', username);
-    const authenticateUsers = /*sql*/ `
+    const SQL = /*sql*/ `
         SELECT user_id, password_hash
         FROM users
         WHERE username = $1;
@@ -152,15 +156,17 @@ const authenticateUser = async ({ username, password }) => {
     // Compared provided password with the stored hash
     const isPasswordValid = await bcrypt.compare(password, storedPasswordHash)
 
-    if (!response.rows.length || !isPasswordValid) {
+    if (!isPasswordValid) {
         console.error('Invalid username or password');
         const error = Error('Invalid username or password');
         error.status = 401;
         throw error;
     }
 
-    const token = jwt.sign({ id: response.rows[0].id }, JWT , {
-        algorithm: 'HS256',
+    const token = jwt.sign({ 
+        id: response.rows[0].user_id }, 
+        JWT_SECRET, 
+        { algorithm: 'HS256',
     });
     console.log('Generated Token:', token);
     return { token };
