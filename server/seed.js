@@ -311,6 +311,102 @@ async function seedData() {
                 movie_description: 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
                 price: '10'
             }),
+            createMovie ({
+                movie_name: 'The Thursday Murder Club',
+                movie_img: '',
+                movie_description: 'Four irresponsible retirees spend their time solving cold case murders for fun, but their casual sleuthingtakes a thrilling turm when they find themselves with a real whodunit on their hands.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'The Phoenician Scheme',
+                movie_img: '',
+                movie_description: 'Wealthy business man Zsa-zsa Korda appoints his only daughter, a nun, as sole heir to his estate. as Korda embarks on a new enterprise, they soon become the target of scheming tycoons, foreign terrorists and determined assassins.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'The Naked Gun',
+                movie_img: '',
+                movie_description: 'Only one man has the particular set of skills - to lead Police squad and save the world.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'The Famiy Plan',
+                movie_img: '',
+                movie_description: 'A former top assassin living incognito as a suburban dad must take his unsuspecting family on the run when his past catches up to him.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Jumanji: Welcome to the Jungle',
+                movie_img: '',
+                movie_description: 'Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Jumanji: The Next Level',
+                movie_img: '',
+                movie_description: 'In Jumanji: The Nect Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the worlds most dangerous game.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Glass Onion',
+                movie_img: '',
+                movie_description: 'Tech billionaire Miles Bron invites his friends for a getaway on his private Greek island. When someone turns up dead, Detective Beinoit Blanc is put on the case.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Back in Action',
+                movie_img: '',
+                movie_description: 'Former CIA soies Emily and Matt are pulled back into espionage after their secret identities are exposed.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'A Man Called Otto',
+                movie_img: '',
+                movie_description: 'When a lively young family moves in next door, grumpy widower Otto Anderson meets his match in a qiock-witted, pregnant woman named Marisol, leading to an unlikely friendship that turns his world upside down.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'DOG',
+                movie_img: '',
+                movie_description: 'Two hard-charging former Army Rangers paired against their will, Briggs and a Belgiam Malinois named Lulu, race down the Pacific Coast in hopes of making it to a fellow soldiers funeral on time',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Good Boy',
+                movie_img: '',
+                movie_description: 'A loyal dog moves to a rural family home with his owner, only to discover supernatural froces lurking in the shadows. As dark entities threaten his human companion, the brabe pup must fight to protect the one he loves most.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Woman in the Yard',
+                movie_img: '',
+                movie_description: 'A mysterious woman repeatedly appears in a familys front yard, often delivering chilling warnings and unsettling messages, leaving them to question her identity, motives and the potential danger she might pose.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Poltergeist',
+                movie_img: '',
+                movie_description: 'A family whose suburman home is haunted by evil forces must come together to rescue their youngest daughter after the apparitions take her captive.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Midsommar',
+                movie_img: '',
+                movie_description: 'A couple travels to Northern Europe to visit a rural hometowns fabled Swedish mid-summer festival. What begins as a idylic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'Sinners',
+                movie_img: '',
+                movie_description: 'Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back.',
+                price: ''
+             }),
+             createMovie ({
+                movie_name: 'It',
+                movie_img: '',
+                movie_description: 'In the summer of 1989, a group of bullied kids band together to destroy a shape=shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town.',
+                price: ''
+             }),
 
             // Example Display -
             // createMovie ({

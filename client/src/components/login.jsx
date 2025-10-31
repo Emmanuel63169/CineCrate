@@ -35,7 +35,7 @@ export default function LoginPage() {
         alert('Login Successful');
         
         // Redirect or reload
-        window.location.href = ('/home');
+        window.location.href = ('/');
       } else {
         throw new Error('No token received from server');
       }

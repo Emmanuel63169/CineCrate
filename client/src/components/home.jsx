@@ -27,13 +27,13 @@ export default function HomePage() {
         <div className='homePage'>
             <div className='Header'>
               <h1>Home page</h1>
-              <h2>Welcome Home, {username || 'User'}!</h2>
+              <h2>Welcome Home, {username || 'Guest'}!</h2>
             </div>
             <div className='yourMoviesContainer'>
-                <p>No Owned Movies</p>
+                <p>No listed Movies</p>
             </div>
             <div className='onSaleMovies'>
-                <p>No Movies on Sale</p>
+                <p>No recommended Movies</p>
             </div>
         </div>
       </>
