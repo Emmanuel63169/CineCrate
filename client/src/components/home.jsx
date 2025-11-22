@@ -5,16 +5,16 @@ import { jwtDecode } from 'jwt-decode';
 import './CSS/home.css'
 
 export default function HomePage() {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState('Guest')
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (token) {
       try {
-        const decoded = jwtDecode('token');
+        const decoded = jwtDecode(token);
         console.log('Decoded JWT:', decoded);
-        setUsername(decoded.username || User);
+        setUsername(decoded.username);
       } catch (error) {
         console.error("Invalid Token:", error)
         localStorage.removeItem('token');

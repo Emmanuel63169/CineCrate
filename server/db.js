@@ -135,7 +135,7 @@ const createUser = async ({username, email, password_hash, is_admin = false}) =>
 const authenticateUser = async ({ username, password }) => {
     console.log('Authenticating User: ', username);
     const SQL = /*sql*/ `
-        SELECT user_id, password_hash
+        SELECT user_id, username, password_hash
         FROM users
         WHERE username = $1;
     `;
@@ -148,13 +148,13 @@ const authenticateUser = async ({ username, password }) => {
         throw error;
     }
 
-    const storedPasswordHash = response.rows[0].password_hash;
+    const user = response.rows[0];
 
     console.log('Password entered: ', password);
-    console.log('Stored hash: ', storedPasswordHash);
+    console.log('Stored hash: ', user.password_hash);
 
     // Compared provided password with the stored hash
-    const isPasswordValid = await bcrypt.compare(password, storedPasswordHash)
+    const isPasswordValid = await bcrypt.compare(password, user.password_hash)
 
     if (!isPasswordValid) {
         console.error('Invalid username or password');
@@ -163,10 +163,13 @@ const authenticateUser = async ({ username, password }) => {
         throw error;
     }
 
+    // JWT with id/username
     const token = jwt.sign({ 
-        id: response.rows[0].user_id }, 
-        JWT_SECRET, 
-        { algorithm: 'HS256',
+        id: user.user_id,
+        username: user.username
+    }, 
+        JWT_SECRET, { 
+        algorithm: 'HS256',
     });
     console.log('Generated Token:', token);
     return { token };
