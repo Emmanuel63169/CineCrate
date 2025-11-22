@@ -27,7 +27,7 @@ async function seedData() {
         ])
 
         // Movies -
-        const [jaws, star_wars, titanic, wizard_of_oz, harry_potter_1, the_lion_king, wall_e, jurassic_park, jurassic_park_2, jurassic_park_3, coraline, a_bugs_life, barbie, openheimer, dinosaur, ice_age, ice_age_2, ice_age_3, ice_age_4, up, casablanca, indiana_jones, indiana_jones_2, indiana_jones_3, harry_potter_2, harry_potter_3, harry_potter_4, harry_potter_5, harry_potter_6, harry_potter_7, harry_potter_8, lord_of_the_rings, lord_of_the_rings_2, lord_of_the_rings_3, logan, the_shining, dumb_and_dumber, knives_out, spiderman_into_the_spiderverse, howls_moving_castle, the_dark_knight, the_lego_batman_movie, joker, the_batman, the_lego_movie, no_country_for_old_men, pulp_fiction ] = await Promise.all([
+        const [jaws, star_wars, titanic, wizard_of_oz, harry_potter_1, the_lion_king, wall_e, jurassic_park, jurassic_park_2, jurassic_park_3, coraline, a_bugs_life, barbie, openheimer, dinosaur, ice_age, ice_age_2, ice_age_3, ice_age_4, up, casablanca, indiana_jones, indiana_jones_2, indiana_jones_3, harry_potter_2, harry_potter_3, harry_potter_4, harry_potter_5, harry_potter_6, harry_potter_7, harry_potter_8, lord_of_the_rings, lord_of_the_rings_2, lord_of_the_rings_3, logan, the_shining, dumb_and_dumber, knives_out, spiderman_into_the_spiderverse, howls_moving_castle, the_dark_knight, the_lego_batman_movie, joker, the_batman, the_lego_movie, no_country_for_old_men, pulp_fiction, the_thursday_murder_club, the_phoenician_scheme, the_naked_gun, the_family_plan, jumanji, jumanji_2, glass_onion, back_in_action, a_man_called_otto, dog, good_boy, woman_in_the_yard, midsommar, sinners, it, ] = await Promise.all([
             createMovie ({ 
                 movie_name: 'Jaws',
                 movie_img: 'https://ts3.mm.bing.net/th?id=OIP.ee4ZY6ofX4hjnRUAyYjfzQHaLN&pid=15.1',                             
@@ -42,7 +42,7 @@ async function seedData() {
             }),
             createMovie ({ 
                 movie_name: 'Titanic',
-                movie_img: 'https://th.bing.com/th/id/OIP.w5yfrTQcJGzTVNmEVdYjuAHaEK?w=308&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+                movie_img: 'https://tse1.mm.bing.net/th/id/OIP.Xi0JF3rZ2omf3HL5TCPYpAHaLH?pid=ImgDet&w=203&h=304&c=7&o=7&rm=3',
                 movie_description: 'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
                 price: '20' 
             }),
@@ -313,99 +313,99 @@ async function seedData() {
             }),
             createMovie ({
                 movie_name: 'The Thursday Murder Club',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.1xXpvboVpiIeOSQIHtiIPQHaJS?w=123&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'Four irresponsible retirees spend their time solving cold case murders for fun, but their casual sleuthingtakes a thrilling turm when they find themselves with a real whodunit on their hands.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'The Phoenician Scheme',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.PBqO_TkQx3k7DgWfs5sujQHaJf?w=136&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'Wealthy business man Zsa-zsa Korda appoints his only daughter, a nun, as sole heir to his estate. as Korda embarks on a new enterprise, they soon become the target of scheming tycoons, foreign terrorists and determined assassins.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'The Naked Gun',
-                movie_img: '',
+                movie_img: 'https://all.web.img.acsta.net/r_2500_x/img/2a/11/2a11acca7c024bf70e9daf6a0f5be706.jpg',
                 movie_description: 'Only one man has the particular set of skills - to lead Police squad and save the world.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'The Famiy Plan',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.ivQV93L_dvCT7lGSChZlhwHaLH?w=115&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'A former top assassin living incognito as a suburban dad must take his unsuspecting family on the run when his past catches up to him.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Jumanji: Welcome to the Jungle',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.sqcO5wFCcufHs1MQuS3wnAHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Jumanji: The Next Level',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.whmsbVK1PPVFRMatUil1WQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'In Jumanji: The Nect Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the worlds most dangerous game.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Glass Onion',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.JuQaP2f6GRsKAUzoEkPTCQHaK1?w=203&h=298&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'Tech billionaire Miles Bron invites his friends for a getaway on his private Greek island. When someone turns up dead, Detective Beinoit Blanc is put on the case.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Back in Action',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.HMo-wj-xYkY-0U6KUixaCwHaLH?w=115&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'Former CIA soies Emily and Matt are pulled back into espionage after their secret identities are exposed.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'A Man Called Otto',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.-mG8LchwTiKzjpsJmYQbEAHaJ4?w=126&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'When a lively young family moves in next door, grumpy widower Otto Anderson meets his match in a qiock-witted, pregnant woman named Marisol, leading to an unlikely friendship that turns his world upside down.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'DOG',
-                movie_img: '',
+                movie_img: 'https://tse4.mm.bing.net/th/id/OIP.aEk2G46ov-tPwc_fTaK_2wHaKj?pid=ImgDet&w=203&h=290&c=7&o=7&rm=3',
                 movie_description: 'Two hard-charging former Army Rangers paired against their will, Briggs and a Belgiam Malinois named Lulu, race down the Pacific Coast in hopes of making it to a fellow soldiers funeral on time',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Good Boy',
-                movie_img: '',
+                movie_img: 'https://static1.srcdn.com/wordpress/wp-content/uploads/2025/03/good-boy-placeholder-poster.jpg',
                 movie_description: 'A loyal dog moves to a rural family home with his owner, only to discover supernatural froces lurking in the shadows. As dark entities threaten his human companion, the brabe pup must fight to protect the one he loves most.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Woman in the Yard',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.9gXlkPHOeokSjaxmjFv1KgHaJQ?w=127&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'A mysterious woman repeatedly appears in a familys front yard, often delivering chilling warnings and unsettling messages, leaving them to question her identity, motives and the potential danger she might pose.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Poltergeist',
-                movie_img: '',
+                movie_img: 'https://www.themoviedb.org/t/p/original/fI3BO35QaMUPnUmhf7lAXUFzDk2.jpg',
                 movie_description: 'A family whose suburman home is haunted by evil forces must come together to rescue their youngest daughter after the apparitions take her captive.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Midsommar',
-                movie_img: '',
+                movie_img: 'https://grandillusioncinema.org/wp-content/uploads/2023/06/midsommar.jpg',
                 movie_description: 'A couple travels to Northern Europe to visit a rural hometowns fabled Swedish mid-summer festival. What begins as a idylic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'Sinners',
-                movie_img: '',
+                movie_img: 'https://th.bing.com/th/id/OIP.cQGT4DGflOC1wJs5Xp9kfQHaLH?w=203&h=304&c=7&r=0&o=7&pid=1.7&rm=3',
                 movie_description: 'Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back.',
-                price: ''
+                price: '9'
              }),
              createMovie ({
                 movie_name: 'It',
-                movie_img: '',
+                movie_img: 'https://tse2.mm.bing.net/th/id/OIP.84BYsaNO3lkARE3Fk31yUAHaKj?pid=ImgDet&w=203&h=290&c=7&o=7&rm=3',
                 movie_description: 'In the summer of 1989, a group of bullied kids band together to destroy a shape=shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town.',
-                price: ''
+                price: '9'
              }),
 
             // Example Display -
@@ -466,6 +466,21 @@ async function seedData() {
             addGenreToMovie({ movie_id: the_lego_movie.movie_id,                  genre_id: animated.genre_id }),
             addGenreToMovie({ movie_id: no_country_for_old_men.movie_id,          genre_id: drama.genre_id    }),
             addGenreToMovie({ movie_id: pulp_fiction.movie_id,                    genre_id: action.genre_id   }),
+            addGenreToMovie({ movie_id: the_thursday_murder_club.movie_id,        genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: the_phoenician_scheme.movie_id,           genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: the_naked_gun.movie_id,                   genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: the_family_plan.movie_id,                 genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: jumanji.movie_id,                         genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: jumanji_2.movie_id,                       genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: glass_onion.movie_id,                     genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: back_in_action.movie_id,                  genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: a_man_called_otto.movie_id,               genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: dog.movie_id,                             genre_id: comedy.genre_id   }),
+            addGenreToMovie({ movie_id: good_boy.movie_id,                        genre_id: horror.genre_id   }),
+            addGenreToMovie({ movie_id: woman_in_the_yard.movie_id,               genre_id: horror.genre_id   }),
+            addGenreToMovie({ movie_id: midsommar.movie_id,                       genre_id: horror.genre_id   }),
+            addGenreToMovie({ movie_id: sinners.movie_id,                         genre_id: horror.genre_id   }),
+            addGenreToMovie({ movie_id: it.movie_id,                              genre_id: horror.genre_id   }),
         ])
 
         // Users -
