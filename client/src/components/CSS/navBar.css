@@ -15,7 +15,10 @@
     margin-top: 2rem;
 }
 
-.navLinks a {
+.navLinks a,
+.navLinks button {
+    /* all: unset; overrides index.css button styling */
+    all: unset; 
     color: black;
     font-weight: bold;
     font-size: x-large;
@@ -25,7 +28,8 @@
     width: 75%;
 }
 
-.navLinks a:hover {
+.navLinks a:hover,
+.navLinks button:hover {
     background-color: black;
     color: white;
     border-color: gray;
