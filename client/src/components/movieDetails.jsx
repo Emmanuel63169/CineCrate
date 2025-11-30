@@ -29,6 +29,34 @@ export default function MovieDetails() {
         navigate(-1);
     }
 
+    const handleSavedMovie = async () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("You must be logged in to save movies.");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:3000/api/users/me", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({ movie_id: movieId })
+            });
+
+            const data = await response.json();
+            console.log("save response:", data);
+
+            alert(data.message || "Movie Saved!");
+        } catch (error) {
+            console.error("Error saving movie:", error);
+            alert("There was an error saving this movie.")
+        }
+
+    }
+
     return(
         <>
             <div className="movieDetailsPage">
@@ -41,6 +69,7 @@ export default function MovieDetails() {
                         </div>
                         <div className="movieDetails">
                             <h2 className="movieTitle">{movie.movie_name}</h2>
+                            <button onClick={handleSavedMovie}>Favorite</button>
                             <div className="movieInfo">
                                 <img src={movie.movie_img} alt={movie.movie_name} />
                                 <p>{movie.movie_description}</p>

@@ -93,8 +93,17 @@ const createTables = async () => {
         `;
         await pool.query(createMovieGenresTable);
 
-        // Create Cart_movies Table
-
+        // Create saved_movies Join Table
+        console.log('Creating saved_movies join table...')
+        const createSavedMoviesTable = /*sql*/ `
+        CREATE TABLE IF NOT EXISTS saved_movies (
+            user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
+            movie_id UUID REFERENCES movies(movie_id) ON DELETE CASCADE,
+            saved_at TIMESTAMP DEFAULT NOW(),
+            PRIMARY KEY (user_id, movie_id)
+        );
+        `;
+        await pool.query(createSavedMoviesTable);
         // Create Carts Table
 
 
@@ -165,7 +174,7 @@ const authenticateUser = async ({ username, password }) => {
 
     // JWT with id/username
     const token = jwt.sign({ 
-        id: user.user_id,
+        user_id: user.user_id,
         username: user.username
     }, 
         JWT_SECRET, { 
@@ -253,6 +262,30 @@ const getMoviesWithGenres = async () => {
     return response.rows;
 }
 
+// Add Movie to saved_movies
+const saveMovieForUser = async ({ user_id, movie_id}) => {
+    const SQL = /*sql*/ `
+    INSERT INTO saved_movies (user_id, movie_id)
+    VALUES ($1, $2)
+    ON CONFLICT DO NOTHING
+    RETURNING *;
+    `;
+    const response = await pool.query(SQL, [user_id, movie_id]);
+    return response.rows[0];
+};
+
+// Fetch saved_movies
+const getSavedMoviesByUser = async (user_id) => {
+    const SQL = /*SQL*/ `
+        SELECT m.*
+        FROM saved_movies sm
+        JOIN movies m ON sm.movie_id = m.movie_id
+        WHERE sm.user_id = $1;
+    `;
+    const response = await pool.query(SQL, [user_id]);
+    return response.rows;
+}
+
 module.exports = {
     pool,
     connectDB,
@@ -264,4 +297,6 @@ module.exports = {
     createGenre,
     addGenreToMovie,
     getMoviesWithGenres,
+    saveMovieForUser,
+    getSavedMoviesByUser,
 }

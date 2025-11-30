@@ -14,6 +14,8 @@ const {
     getUserById,
     getMovies,
     getMoviesWithGenres,
+    saveMovieForUser,
+    getSavedMoviesByUser,
 } = require('./db')
 
 function verifyToken(req, res, next) {
@@ -147,6 +149,33 @@ router.get('/users/me', verifyToken, async (req, res, next) => {
         next(error);
     }
 });
+
+// POST /api/users/me
+router.post('/users/me', verifyToken, async (req, res) => {
+    const { movie_id } = req.body;
+    const user_id = req.user.user_id;
+
+    try {
+        const saved = await saveMovieForUser({ user_id, movie_id });
+        res.status(201).json(saved || { message: "Already saved" });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+// GET /api/users/saved
+router.get('/users/saved', verifyToken, async (req, res) => {
+    const user_id = req.user.user_id
+
+    try {
+        const movies = await getSavedMoviesByUser(user_id);
+        res.json(movies);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 
 
 module.exports = router;
